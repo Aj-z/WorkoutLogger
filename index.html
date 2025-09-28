@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Workout Logger (Local)</title>
+  <meta name="description" content="Simple workout logger that stores data in the browser and exports to Excel/CSV. Suitable for static hosting (Netlify)." />
+  <!-- SheetJS for Excel export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Workout Logger </h1>
+      <div class="muted">Saved to your browser only</div>
+    </header>
+
+    <section class="card" id="entry-card">
+      <form id="entry-form">
+        <div id="entry-fields" >
+          <div style="flex:1">
+            <label>Date</label>
+            <input type="date" id="date" required />
+          </div>
+          <div style="flex:1">
+            <label>Exercise</label>
+            <input id="exercise" placeholder="e.g. Bench press" required />
+          </div>
+          <div style="flex:1">
+            <label>Sets</label>
+            <input type="number" id="sets" min="1" value="3" required />
+          </div>
+          <div style="flex:1">
+            <label>Reps</label>
+            <input type="number" id="reps" min="1" value="8" required />
+          </div>
+          <div style="flex:1">
+            <label>Weight (kg)</label>
+            <input type="number" id="weight" step="0.1" />
+          </div>
+        </div>
+
+        <div style="margin-top:8px">
+          <label>Notes</label>
+          <textarea id="notes" rows="2" placeholder="Optional notes (tempo, RPE, etc)"></textarea>
+        </div>
+
+        <div style="margin-top:10px;display:flex;gap:8px;">
+          <button type="submit" id="save">Save entry</button>
+          <button type="button" id="reset" class="ghost">Clear form</button>
+          <div style="margin-left:auto" class="flex">
+            <button type="button" id="exportCsv" class="small ghost">Export CSV</button>
+            <button type="button" id="exportXlsx" class="small">Export Excel</button>
+            <button type="button" id="clearAll" class="small ghost">Delete all</button>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section style="margin-top:14px" class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <strong>Entries</strong>
+        <div class="muted" id="count">0 entries</div>
+      </div>
+
+      <div id="table-wrap"></div>
+    </section>
+
+    <footer style="margin-top:14px;text-align:center;color:var(--muted);font-size:13px">
+      This app stores your data in your browser (localStorage).
+    </footer>
+  </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
