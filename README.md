@@ -8,9 +8,13 @@ Lets you add, edit, delete, and download your workout logs as an Excel (CSV) fil
 --- Features --- 
 
 ✅ Add workout entries (exercise name, sets, reps, weight, date).
+
 ✅ Save data locally in your browser.
+
 ✅ Edit or delete any workout entry.
+
 ✅ Export your workouts to Excel (CSV).
+
 ✅ Simple and lightweight design.
 
 --- How to Use --- 
